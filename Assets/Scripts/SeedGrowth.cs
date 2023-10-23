@@ -8,10 +8,11 @@ public class SeedGrowth : MonoBehaviour
     private float timer;
     public GameObject seedObject;
     public GameObject rotator, locater;
+    public Currency currency;
     // Start is called before the first frame update
     void Start()
     {
-
+        currency = FindObjectOfType<Currency>();
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class SeedGrowth : MonoBehaviour
             rotator.transform.localEulerAngles = new Vector3(0, 0, angleThrow);
             locater.transform.localPosition = new Vector2(0, localDistance);
             seedObject.transform.position = locater.transform.position;
+            currency.adn++;
             Instantiate(seedObject);
         }
     }

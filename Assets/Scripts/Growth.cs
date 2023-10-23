@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Growth : MonoBehaviour
 {
-    public int seeds;
     public GameObject seedObject;
+    public Pause pauseScript;
+    public Currency currency;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +21,14 @@ public class Growth : MonoBehaviour
 
     void PlantProcess()
     {
-        if (Input.GetMouseButtonDown(0) && seeds > 0) 
+        if (Input.GetMouseButtonDown(0) && currency.seeds > 0 && !pauseScript.paused) 
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 plantLocate = new Vector2(worldPoint.x, worldPoint.y);
             Debug.Log(plantLocate);
             seedObject.transform.position = plantLocate;
             Instantiate(seedObject);
-            seeds--;
+            currency.seeds--;
         }
 
     }
