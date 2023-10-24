@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
 {
-    public Text numberSeeds, numberAdn;
+    public Text numberSeeds, numberAdn, buySeedText, buyAnimalText;
     public Currency currency;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class Hud : MonoBehaviour
     {
         numberSeeds.text = currency.seeds + "";
         numberAdn.text = currency.adn + "";
-
+        buySeedText.text = "Buy " + "(" + 10 * currency.seedMultiplier + ")";
+        buyAnimalText.text = "Buy " + "(" + 100 * currency.animalMultiplier + ")";
     }
 }

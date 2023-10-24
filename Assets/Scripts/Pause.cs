@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    public GameObject pauseHud;
+    public GameObject pauseHud, victoryHud;
     public bool paused;
     // Start is called before the first frame update
     void Start()
     {
+        victoryHud.SetActive(false);
         Resume();
     }
     void Update()
@@ -53,5 +54,12 @@ public class Pause : MonoBehaviour
         }*/
         //pauseMusic.Pause();
         paused = false;
+    }
+
+    public void OnVictory()
+    {
+        Time.timeScale = 0;
+        victoryHud.SetActive(true);
+        paused = true;
     }
 }
